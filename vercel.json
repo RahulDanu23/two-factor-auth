@@ -1,0 +1,12 @@
+{
+  "projects": [
+    {
+      "name": "2factor-client",
+      "rootDirectory": "client"
+    },
+    {
+      "name": "2factor-server",
+      "rootDirectory": "server"
+    }
+  ]
+}
