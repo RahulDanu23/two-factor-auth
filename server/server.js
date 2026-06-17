@@ -11,17 +11,19 @@ const port = process.env.PORT || 5000;
 
 // Allowed origins
 const allowedOrigins = [
-  'http://localhost:5173',
-  'https://two-factor-auth-chi.vercel.app'
+  "http://localhost:5173",
+  "https://two-factor-auth-chi.vercel.app"
 ];
 
-// CORS middleware with origin check
 app.use(cors({
-  origin: function (origin, callback) {
+  origin: (origin, callback) => {
+    console.log("Request Origin:", origin);
+
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      console.log("Blocked Origin:", origin);
+      callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true
