@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 import { toast } from "react-toastify";
@@ -5,7 +6,7 @@ import { toast } from "react-toastify";
 export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.DEV ? 'http://localhost:5000' : import.meta.env.VITE_BACKEND_URL;
     const [isLoggedin, setIsLoggedin] = useState(false);
     const [userData, setUserData] = useState(null);
 
@@ -20,6 +21,7 @@ export const AppContextProvider = (props) => {
                 setIsLoggedin(false);
             }
         } catch (error) {
+            console.log(error);
             setUserData(null);
             setIsLoggedin(false);
         }
@@ -46,6 +48,7 @@ export const AppContextProvider = (props) => {
     // Check auth state when app loads
     useEffect(() => {
         authState();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const value = {

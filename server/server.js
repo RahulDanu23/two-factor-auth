@@ -12,6 +12,7 @@ const port = process.env.PORT || 5000;
 // Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:5174",
   "https://two-factor-auth-eight.vercel.app"
 ];
 

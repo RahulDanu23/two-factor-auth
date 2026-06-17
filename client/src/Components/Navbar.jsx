@@ -93,6 +93,15 @@ const Navbar = () => {
                   </div>
                 )}
                 <div 
+                  onClick={() => {
+                    setShowDropdown(false);
+                    navigate('/reset-password');
+                  }}
+                  className='px-4 py-2 text-sm text-indigo-600 hover:bg-gray-50 cursor-pointer active:bg-gray-100'
+                >
+                  Reset Password
+                </div>
+                <div 
                   onClick={handleLogout}
                   className='px-4 py-2 text-sm text-red-600 hover:bg-gray-50 cursor-pointer active:bg-gray-100'
                 >
