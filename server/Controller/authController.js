@@ -101,6 +101,11 @@ export const logout = async(req, res) => {
             secure: true,
             sameSite: 'none',
         });
+        res.clearCookie('tempToken', {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+        });
         return res.json({success:true, message:"Logout Success"});
     } catch (error) {
         return res.json({success:false, message:error.message});
@@ -171,7 +176,11 @@ export const verifyEmail = async(req, res) => {
         const token = jwt.sign({id: user._id}, process.env.JWT_SECRET, {expiresIn: '1d'}); // Token expires in 1 day
         
         // Clear temp token and set new session token
-        res.clearCookie('tempToken');
+        res.clearCookie('tempToken', {
+            httpOnly: true,
+            secure: true,
+            sameSite: 'none',
+        });
         res.cookie('token', token, {
             httpOnly: true,
             secure: true,
