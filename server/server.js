@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 // Allowed origins
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://two-factor-auth-chi.vercel.app"
+  "hhttps://two-factor-auth-eight.vercel.app"
 ];
 
 app.use(cors({
