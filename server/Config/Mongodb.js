@@ -18,7 +18,7 @@ const connectDB = async () => {
             console.log("Database disconnected");
         });
 
-        await mongoose.connect(`${process.env.MONGODB_URI}`);
+        await mongoose.connect(`${process.env.MONGODB_URI}2Factor`);
 
     } catch (error) {
         console.error("Failed to connect to database:", error.message);
