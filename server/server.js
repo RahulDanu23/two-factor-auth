@@ -10,7 +10,10 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // Allowed origins
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = [
+  'http://localhost:5173',
+  'https://two-factor-auth-chi.vercel.app'
+];
 
 // CORS middleware with origin check
 app.use(cors({
